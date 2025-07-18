@@ -1,30 +1,54 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router";
 
 const FeaturedFoods = () => {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/featured-foods")
-      .then(res => setFoods(res.data))
-      .catch(err => console.log(err));
+    axios
+      .get("http://localhost:3000/featured-foods")
+      .then((res) => setFoods(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className="grid grid-cols-3 gap-6">
-      {foods.map(food => (
+      {foods.map((food) => (
         <div key={food._id} className="p-4 shadow-md border rounded">
-          <img src={food.image} alt={food.name} className="w-full h-48 object-cover mb-2" />
+          <img
+            src={food.image}
+            alt={food.name}
+            className="w-full h-48 object-cover mb-2"
+          />
           <h2 className="text-xl font-bold">{food.name}</h2>
           <div className="flex justify-between my-2">
-            <p><span className="font-bold">Price:</span> {food.price}</p>
-          <p> <span className="font-bold">Quantity:</span> {food.quantity}</p>
+            <p>
+              <span className="font-bold">Price:</span> {food.price}
+            </p>
+            <p>
+              {" "}
+              <span className="font-bold">Quantity:</span> {food.quantity}
+            </p>
           </div>
           <p>{food.description}</p>
-          <div className="card-actions justify-end mt-4">
-      <div className="badge badge-outline hover:bg-green-700 hover:text-white">Category: {food.category}</div>
-      <div className="badge badge-outline hover:bg-green-700 hover:text-white">Quantity: {food.quantity}</div>
-    </div>
+          <div className="card-actions justify-between items-center mt-4">
+            <div className="text-center">
+              <Link to={`/food-details/${food._id}`}>
+                <button className="rounded bg-[#73B21A] hover:bg-[#008236] hover:text-white px-2 py-1 font-semibold">
+                  Details
+                </button>
+              </Link>
+            </div>
+            <div>
+              <div className="mr-1 badge badge-outline hover:bg-green-700 hover:text-white">
+                Category: {food.category}
+              </div>
+              <div className="badge badge-outline hover:bg-green-700 hover:text-white">
+                Quantity: {food.quantity}
+              </div>
+            </div>
+          </div>
         </div>
       ))}
     </div>
