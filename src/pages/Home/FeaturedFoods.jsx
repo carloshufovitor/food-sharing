@@ -16,8 +16,15 @@ const FeaturedFoods = () => {
         <div key={food._id} className="p-4 shadow-md border rounded">
           <img src={food.image} alt={food.name} className="w-full h-48 object-cover mb-2" />
           <h2 className="text-xl font-bold">{food.name}</h2>
-          <p>Price: ${food.price}</p>
-          <p>Quantity: {food.quantity}</p>
+          <div className="flex justify-between my-2">
+            <p><span className="font-bold">Price:</span> {food.price}</p>
+          <p> <span className="font-bold">Quantity:</span> {food.quantity}</p>
+          </div>
+          <p>{food.description}</p>
+          <div className="card-actions justify-end mt-4">
+      <div className="badge badge-outline hover:bg-green-700 hover:text-white">Category: {food.category}</div>
+      <div className="badge badge-outline hover:bg-green-700 hover:text-white">Quantity: {food.quantity}</div>
+    </div>
         </div>
       ))}
     </div>
