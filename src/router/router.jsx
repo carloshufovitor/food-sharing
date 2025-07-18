@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import AddFood from '../pages/Private Page/AddFood';
 import MyFoodRequest from '../pages/Private Page/MyFoodRequest';
 import ManageMyFoods from '../pages/Private Page/ManageMyFoods';
+import FeaturedFoods from '../pages/Home/FeaturedFoods';
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                // loader: () => fetch("https://gardening-community-server-kappa.vercel.app/gardeners"),
                 Component: Home
             }, 
             {
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
                         <ManageMyFoods></ManageMyFoods>
                     </PrivateRoute>
                 ),
+            },
+            {
+                path: '/featured-foods',
+                Component: FeaturedFoods
             }
         ]
     }
