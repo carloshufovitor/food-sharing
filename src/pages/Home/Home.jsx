@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import FeaturedFoods from './FeaturedFoods';
 import { Link } from 'react-router';
+import Faqs from './Faqs';
 
 const Home = () => {
      
@@ -22,6 +23,9 @@ const Home = () => {
 </button></Link>
            </div>
            </div>
+
+           {/* faqs section */}
+           <Faqs></Faqs>
         </div>
     );
 };
