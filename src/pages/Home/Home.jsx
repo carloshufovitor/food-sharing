@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from './Banner';
 import FeaturedFoods from './FeaturedFoods';
+import { Link } from 'react-router';
 
 const Home = () => {
      
@@ -16,9 +17,9 @@ const Home = () => {
            </div>
            <div className='text-center'>
             
-           <button className="w- rounded bg-[#73B21A] hover:bg-[#008236] hover:text-white px-4 py-2 font-semibold">
+          <Link to='/available-foods'> <button className="w- rounded bg-[#73B21A] hover:bg-[#008236] hover:text-white px-4 py-2 font-semibold">
   View All
-</button>
+</button></Link>
            </div>
            </div>
         </div>

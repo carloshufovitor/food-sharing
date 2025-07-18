@@ -9,6 +9,7 @@ import AddFood from '../pages/Private Page/AddFood';
 import MyFoodRequest from '../pages/Private Page/MyFoodRequest';
 import ManageMyFoods from '../pages/Private Page/ManageMyFoods';
 import FeaturedFoods from '../pages/Home/FeaturedFoods';
+import AvailableFoods from '../pages/Home/AvailableFoods';
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
             {
                 path: '/featured-foods',
                 Component: FeaturedFoods
+            },
+            {
+                path: '/available-foods',
+                Component: AvailableFoods
             }
         ]
     }
