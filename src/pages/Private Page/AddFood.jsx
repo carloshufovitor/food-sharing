@@ -1,11 +1,11 @@
-import React, { use } from 'react';
-import { ToastContainer } from 'react-toastify';
+import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import LottieAnimation from '../Home/LottieAnimation';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 
 const AddFood = () => {
 
-    const {user} =use(AuthContext)
+  
 
     const handleAddFood = e => {
         e.preventDefault();
@@ -16,6 +16,9 @@ const AddFood = () => {
             quantity: form.quantity.value,
             location: form.location.value,
             description: form.description.value,
+            postedAt: form.postedAt.value,
+            price: form.price.value,
+            category: form.category.value,
 
         }
         console.log(formData)
@@ -30,6 +33,10 @@ const AddFood = () => {
         .then(res => res.json())
         .then (data => {
             console.log(`data after creating user in the db`, data )
+            if(data.insertedId){
+                toast.success('Food Added Successfully')
+                form.reset()
+            }
         })
 
     }
@@ -69,7 +76,7 @@ const AddFood = () => {
               type="text"
               name="quantity"
               className="input"
-              placeholder="How I grow tomatoes indoors"
+              placeholder="write quantity"
             />
 
             <label className="label font-bold">Pickup Location</label>
@@ -79,10 +86,24 @@ const AddFood = () => {
               className="input"
               placeholder="Write your Pickup Location"
             />
+            <label className="label font-bold">Price</label>
+            <input
+              type="text"
+              name="price"
+              className="input"
+              placeholder="Write food price"
+            />
+            <label className="label font-bold">Category</label>
+            <input
+              type="text"
+              name="category"
+              className="input"
+              placeholder="Write food category"
+            />
            
             <label className="label font-bold">Expired Date/Time</label>
             <input
-              type="text"
+              type="date"
               name="postedAt"
               className="input"
               placeholder="Write your expired date"

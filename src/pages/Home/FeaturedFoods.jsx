@@ -28,11 +28,11 @@ const FeaturedFoods = () => {
             </p>
             <p>
               {" "}
-              <span className="font-bold">Quantity:</span> {food.quantity}
+              <span className="font-bold">Expired Date:</span> {food.postedAt}
             </p>
           </div>
-          <p>{food.description}</p>
-          <div className="card-actions justify-between items-center mt-4">
+          <p className="mt-6">{food.description}</p>
+          <div className="card-actions justify-between items-center mt-6">
             <div className="text-center">
               <Link to={`/food-details/${food._id}`}>
                 <button className="rounded bg-[#73B21A] hover:bg-[#008236] hover:text-white px-2 py-1 font-semibold">

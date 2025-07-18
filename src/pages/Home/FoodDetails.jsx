@@ -37,6 +37,10 @@ const FoodDetails = () => {
               </p>
               <p className="text-md dark:text-gray-600">
                 {" "}
+                <span className="font-bold">Pickup Location: </span> {food.location}
+              </p>
+              <p className="text-md dark:text-gray-600">
+                {" "}
                 <span className="font-bold">PostedAt: </span> {food.postedAt}
               </p>
             </div>
