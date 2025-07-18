@@ -1,7 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import { useLoaderData } from "react-router";
+import { ToastContainer } from "react-toastify";
+import { AuthContext } from "../../context/AuthContext/AuthProvider";
 
 const FoodDetails = () => {
+  const { user } = use(AuthContext);
   const food = useLoaderData();
   console.log("here is the all info", food);
   return (
@@ -37,7 +40,8 @@ const FoodDetails = () => {
               </p>
               <p className="text-md dark:text-gray-600">
                 {" "}
-                <span className="font-bold">Pickup Location: </span> {food.location}
+                <span className="font-bold">Pickup Location: </span>{" "}
+                {food.location}
               </p>
               <p className="text-md dark:text-gray-600">
                 {" "}
@@ -48,6 +52,109 @@ const FoodDetails = () => {
               <p>{food.description}</p>
             </div>
           </div>
+        </div>
+        <div className="text-center ">
+          {/* Open the modal using document.getElementById('ID').showModal() method */}
+          <button
+            className="btn bg-[#73B21A] text-white hover:bg-white hover:text-black"
+            onClick={() => document.getElementById("my_modal_1").showModal()}
+          >
+            Request
+          </button>
+          <dialog id="my_modal_1" className="modal">
+            <div className="modal-box">
+              <div className="card bg-base-100 w-full  max-w-sm shrink-0 shadow-2xl">
+                <div className="card-body">
+                  <h2 className="text-xl font-bold text-center my-4">
+                    Please request your food
+                  </h2>
+
+                  <form className="fieldset">
+                    <label className="label font-bold">Food Name</label>
+                    <input
+                      type="text"
+                      value={food?.name || ""}
+                      readOnly
+                      name="name"
+                      className="input"
+                      placeholder="Kacchi Biryani"
+                    />
+
+                    <label className="label font-bold">Food Image</label>
+                    <input
+                      type="text"
+                      value={food?.image || ""}
+                      readOnly
+                      name="image"
+                      className="input"
+                      placeholder="Write your photo url"
+                    />
+                    <label className="label font-bold">Food ID</label>
+                    <input
+                      type="text"
+                      value={food?.id || ""}
+                      readOnly
+                      name="foodId"
+                      className="input"
+                      placeholder="food id"
+                    />
+
+                    <label className="label font-bold">User Email</label>
+                    <input
+                      type="email"
+                      value={user?.email || ""}
+                      readOnly
+                      name="email"
+                      className="input"
+                      placeholder="user email"
+                    />
+
+                    <label className="label font-bold">Pickup Location</label>
+                    <input
+                      type="text"
+                      value={food?.location || ""}
+                      readOnly
+                      name="location"
+                      className="input"
+                      placeholder="Write your Pickup Location"
+                    />
+
+                    <label className="label font-bold">Expired Date/Time</label>
+                    <input
+                      value={food?.postedAt || ""}
+                      readOnly
+                      type="date"
+                      name="postedAt"
+                      className="input"
+                      placeholder="Write your expired date"
+                    />
+
+                    <label className="label font-bold">Additional Notes</label>
+                    <textarea
+                      name="description"
+                      className="textarea h-24"
+                      placeholder="Comments"
+                    ></textarea>
+
+                    <button
+                      type="submit"
+                      className="btn btn-neutral mt-4 bg-[#73B21A] hover:bg-[#008236]"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                  <ToastContainer />
+                </div>
+              </div>
+
+              <div className="modal-action">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button className="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
         </div>
       </div>
     </div>
