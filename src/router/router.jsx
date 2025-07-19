@@ -46,6 +46,14 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
             }, 
+            // {
+            //     path: "/my-food-request/:id",
+            //     element: (
+            //         <PrivateRoute>
+            //            <MyFoodRequest></MyFoodRequest>
+            //         </PrivateRoute>
+            //     ),
+            // }, 
         
             {
                 path: "/manage-my-foods",

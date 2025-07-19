@@ -1,12 +1,42 @@
 import React, { use } from "react";
 import { useLoaderData } from "react-router";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../context/AuthContext/AuthProvider";
 
 const FoodDetails = () => {
   const { user } = use(AuthContext);
   const food = useLoaderData();
   console.log("here is the all info", food);
+
+  const handleRequest = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = {
+      name: food?.name,
+      image: food?.image,
+      foodId: food?.foodId,
+      email: user?.email,
+      location: food?.location,
+      postedAt: food?.postedAt,
+      description: form.description.value,
+    };
+    console.log(formData);
+    fetch("http://localhost:3000/request-food", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data after creating user in the db", data);
+        if (data.insertedId) {
+          toast.success("Requested successfully");
+        }
+      });
+  };
+
   return (
     <div>
       <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-100 dark:text-gray-800">
@@ -69,7 +99,7 @@ const FoodDetails = () => {
                     Please request your food
                   </h2>
 
-                  <form className="fieldset">
+                  <form onSubmit={handleRequest} className="fieldset">
                     <label className="label font-bold">Food Name</label>
                     <input
                       type="text"
