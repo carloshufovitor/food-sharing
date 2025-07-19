@@ -12,6 +12,9 @@ import FeaturedFoods from '../pages/Home/FeaturedFoods';
 import AvailableFoods from '../pages/Home/AvailableFoods';
 import FoodDetails from '../pages/Home/FoodDetails';
 import UpdatedFoodDetails from '../pages/Home/UpdatedFoodDetails';
+import PrivacyPolicy from '../pages/Policy/PrivacyPolicy';
+import TermsAndConditions from '../pages/Policy/TermsAndConditions';
+import ContactUs from '../pages/Policy/ContactUs';
 
 const router = createBrowserRouter([
     {
@@ -83,7 +86,19 @@ const router = createBrowserRouter([
             {
                 path: '/available-foods',
                 Component: AvailableFoods
-            }
+            },
+            {
+                path: '/privacy-policy',
+                Component: PrivacyPolicy
+            },
+            {
+                path: '/terms-and-condition',
+                Component: TermsAndConditions
+            },
+            {
+                path: '/contact-us',
+                Component: ContactUs
+            },
         ]
     }
 ])
