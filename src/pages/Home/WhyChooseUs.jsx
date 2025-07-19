@@ -4,7 +4,7 @@ const WhyChooseUs = () => {
   return (
     <section className="bg-white py-24 px-4 sm:px-6 lg:px-8 max-w-11/12 mx-auto">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12 text-[#73B21A]">
+        <h2 className="text-3xl font-bold text-center mb-12 text-black">
           Why Use Our Platform?
         </h2>
 

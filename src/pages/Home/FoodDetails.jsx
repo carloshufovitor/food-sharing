@@ -21,7 +21,7 @@ const FoodDetails = () => {
       description: form.description.value,
     };
     console.log(formData);
-    fetch("http://localhost:3000/request-food", {
+    fetch("http://localhost:3000/requested-food", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -122,7 +122,7 @@ const FoodDetails = () => {
                     <label className="label font-bold">Food ID</label>
                     <input
                       type="text"
-                      value={food?.id || ""}
+                      value={food?._id || ""}
                       readOnly
                       name="foodId"
                       className="input"

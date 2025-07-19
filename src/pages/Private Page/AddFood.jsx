@@ -43,6 +43,7 @@ const AddFood = () => {
 
     return (
        <div className="my-20 grid grid-cols-1 md:grid-cols-2 max-w-11/12 mx-auto justify-center">
+      
       <div>
         <LottieAnimation></LottieAnimation>
       </div>

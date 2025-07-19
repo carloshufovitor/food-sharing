@@ -1,31 +1,48 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useLoaderData } from "react-router";
 
 const MyFoodRequest = () => {
-  const [product, setProduct] = useState(null);
-
-  useEffect(() => {
-    const savedProduct = localStorage.getItem("selectedProduct");
-    if (savedProduct) {
-      setProduct(JSON.parse(savedProduct));
-    }
-  }, []);
-
-  // ❌ Remove this line:
-  // if (!product) return <p>Loading...</p>;
-
-  // ✅ Optional: Show message if product is not found at all
-  if (!product) return <p>No product selected</p>;
-
-  // ✅ Show the product directly
+    const foods = useLoaderData()
+ console.log('here is requested data', foods)
+ 
   return (
-    <div className="text-center">
-      <h2 className="text-2xl font-semibold text-green-600">Requested Food</h2>
-      <div className="mt-4 bg-white p-4 rounded shadow">
-        <h3 className="text-lg font-bold">{product.foodName}</h3>
-        <p>{product.description}</p>
-        <p className="text-sm">Pickup Location: {product.pickupLocation}</p>
-        <p className="text-sm">Expire At: {product.expiredDate}</p>
+     <div className="max-w-11/12 mx-auto my-12">
+         <h2 className='text-3xl font-bold text-center mt-8 mb-10'>My Food Request</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  {foods.map((food) => (
+    <a
+      key={food.id}
+      className="block border border-gray-300 shadow rounded-lg hover:shadow-2xs focus:outline-hidden dark:border-neutral-700"
+      href="#"
+    >
+      <div className="relative flex items-center overflow-hidden">
+        <img
+          className="w-32 sm:w-48 h-full absolute inset-0 object-cover rounded-s-lg"
+          src={food.image} // replace with actual image field
+          alt={food.name}
+        />
+
+        <div className="grow p-4 ms-32 sm:ms-48">
+          <div className="min-h-24 flex flex-col justify-center">
+            <h3 className="font-semibold text-md text-gray-800 dark:text-neutral-300">
+              {food.name}
+            </h3>
+            <h3 className="font-semibold text-sm text-gray-800 dark:text-neutral-300">
+              Pickup Location: {food.location}
+            </h3>
+            <h3 className="font-semibold text-sm text-gray-800 dark:text-neutral-300">
+              Expired Date: {food.postedAt}
+            </h3>
+            <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
+              {food.description}
+            </p>
+          </div>
+        </div>
       </div>
+    </a>
+  ))}
+</div>
+
     </div>
   );
 };
