@@ -15,7 +15,7 @@ const ManageMyFoods = () => {
         <thead>
           <tr>
             <th>Image</th>
-            <th>Name, Email</th>
+            <th>Name</th>
             <th>PickUp Location</th>
             <th>Expired Date</th>
             <th>Category</th>

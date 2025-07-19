@@ -1,11 +1,15 @@
 import React from "react";
+import { useLoaderData } from "react-router";
+import LottieAnimation from "./LottieAnimation";
 import { toast, ToastContainer } from "react-toastify";
-import LottieAnimation from "../Home/LottieAnimation";
-import { AuthContext } from "../../context/AuthContext/AuthProvider";
 
-const AddFood = () => {
-  const handleAddFood = (e) => {
+const UpdatedFoodDetails = () => {
+  const food = useLoaderData();
+  console.log("updaded user", food);
+
+  const handleUpdateUser = (e) => {
     e.preventDefault();
+
     const form = e.target;
     const formData = {
       name: form.name.value,
@@ -19,8 +23,8 @@ const AddFood = () => {
     };
     console.log(formData);
 
-    fetch("http://localhost:3000/users", {
-      method: "POST",
+    fetch(`http://localhost:3000/updated-food-details/${food._id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -28,10 +32,11 @@ const AddFood = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(`data after creating user in the db`, data);
-        if (data.insertedId) {
-          toast.success("Food Added Successfully");
-          form.reset();
+        console.log(data);
+        if (data.modifiedCount) {
+          toast.success("Your Information Updated Successfully");
+        } else {
+          toast.warning("No changes were made");
         }
       });
   };
@@ -44,13 +49,13 @@ const AddFood = () => {
       <div className="card bg-base-100 w-full  max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h2 className="text-xl font-bold text-center my-4">
-            Please add your food
+            Update Your Food Information
           </h2>
 
-          <form onSubmit={handleAddFood} className="fieldset">
+          <form onSubmit={handleUpdateUser} className="fieldset">
             <label className="label font-bold">Food Name</label>
             <input
-              //   value={user?.displayName || ""}
+              defaultValue={food.name}
               //   readOnly
               type="text"
               name="name"
@@ -61,6 +66,7 @@ const AddFood = () => {
             <label className="label font-bold">Food Image</label>
             <input
               type="text"
+              defaultValue={food.image}
               name="image"
               className="input"
               placeholder="Write your photo url"
@@ -69,6 +75,7 @@ const AddFood = () => {
             <label className="label font-bold">Food Quantity</label>
             <input
               type="text"
+              defaultValue={food.quantity}
               name="quantity"
               className="input"
               placeholder="write quantity"
@@ -77,6 +84,7 @@ const AddFood = () => {
             <label className="label font-bold">Pickup Location</label>
             <input
               type="text"
+              defaultValue={food.location}
               name="location"
               className="input"
               placeholder="Write your Pickup Location"
@@ -84,6 +92,7 @@ const AddFood = () => {
             <label className="label font-bold">Price</label>
             <input
               type="text"
+              defaultValue={food.price}
               name="price"
               className="input"
               placeholder="Write food price"
@@ -91,6 +100,7 @@ const AddFood = () => {
             <label className="label font-bold">Category</label>
             <input
               type="text"
+              defaultValue={food.category}
               name="category"
               className="input"
               placeholder="Write food category"
@@ -99,6 +109,7 @@ const AddFood = () => {
             <label className="label font-bold">Expired Date/Time</label>
             <input
               type="date"
+              defaultValue={food.postedAt}
               name="postedAt"
               className="input"
               placeholder="Write your expired date"
@@ -106,6 +117,7 @@ const AddFood = () => {
 
             <label className="label font-bold">Additional Notes</label>
             <textarea
+              defaultValue={food.description}
               name="description"
               className="textarea h-24"
               placeholder="Comments"
@@ -125,4 +137,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default UpdatedFoodDetails;

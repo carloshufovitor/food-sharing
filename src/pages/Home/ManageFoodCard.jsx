@@ -53,7 +53,7 @@ const ManageFoodCard = ({ food, foods, setFoods }) => {
       <td>{food.category}</td>
       <td>
         <Link
-          to={`/update-tip-details/${food._id}`}
+          to={`/update-food-details/${food._id}`}
           className="mr-4 btn btn-ghost btn-xs bg-[#73B21A] text-white hover:bg-[#008236]"
         >
           Edit
