@@ -1,7 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // use `react-router-dom` not `react-router`
+import React from "react";
+import { Link } from "react-router-dom"; // use `react-router-dom` not `react-router`
+import Swal from "sweetalert2";
 
-const ManageFoodCard = ({ food }) => {
+const ManageFoodCard = ({ food, foods, setFoods }) => {
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/manage-my-foods/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              const remainingFoods = foods.filter((item) => item._id !== id);
+              setFoods(remainingFoods);
+
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
+
   return (
     <tr>
       <td>
@@ -11,7 +45,6 @@ const ManageFoodCard = ({ food }) => {
               <img src={food.image} alt="Food" />
             </div>
           </div>
-        
         </div>
       </td>
       <td>{food.name}</td>
@@ -21,11 +54,14 @@ const ManageFoodCard = ({ food }) => {
       <td>
         <Link
           to={`/update-tip-details/${food._id}`}
-          className="mr-4 btn btn-ghost btn-xs bg-[#73B21A] text-white hover:bg-[#008236]">
+          className="mr-4 btn btn-ghost btn-xs bg-[#73B21A] text-white hover:bg-[#008236]"
+        >
           Edit
         </Link>
         <button
-          className="btn btn-ghost btn-xs bg-[#73B21A] text-white hover:bg-[#008236]">
+          onClick={(e) => handleDelete(e, food._id)}
+          className="btn btn-ghost btn-xs bg-[#73B21A] text-white hover:bg-[#008236]"
+        >
           Delete
         </button>
       </td>
