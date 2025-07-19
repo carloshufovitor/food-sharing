@@ -4,6 +4,7 @@ import { Link } from "react-router";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     axios
@@ -12,13 +13,28 @@ const AvailableFoods = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const filteredFoods = foods.filter((food) =>
+    food.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="max-w-11/12 mx-auto mb-10">
       <h2 className="text-4xl font-bold font-[nato-serif] text-center mt-16 mb-10">
         Available Foods
       </h2>
+    {/* search bar */}
+      <div className="text-end my-4">
+        <input
+          type="text"
+          placeholder="Search by food name..."
+          className="border border-gray-300 px-4 py-2 rounded w-1/3"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+
       <div className="grid grid-cols-3 gap-6">
-        {foods.map((food) => (
+        {filteredFoods.map((food) => (
           <div key={food._id} className="p-4 shadow-md border rounded">
             <img
               src={food.image}
@@ -35,7 +51,7 @@ const AvailableFoods = () => {
                 <span className="font-bold">Expired Date:</span> {food.postedAt}
               </p>
             </div>
-              <p className="mt-6">{food.description}</p>
+            <p className="mt-6">{food.description}</p>
             <div className="card-actions justify-between items-center mt-6">
               <div className="text-center">
                 <Link to={`/food-details/${food._id}`}>
