@@ -15,11 +15,13 @@ import UpdatedFoodDetails from '../pages/Home/UpdatedFoodDetails';
 import PrivacyPolicy from '../pages/Policy/PrivacyPolicy';
 import TermsAndConditions from '../pages/Policy/TermsAndConditions';
 import ContactUs from '../pages/Policy/ContactUs';
+import ErrorPage from '../ErrorPage';
 
 const router = createBrowserRouter([
     {
         path: '/',
         Component: RootLayout,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,
@@ -49,7 +51,7 @@ const router = createBrowserRouter([
                        <MyFoodRequest></MyFoodRequest>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("http://localhost:3000/requested-food")
+                loader: () => fetch("https://food-sharing-website-server-lovat.vercel.app/requested-food")
             }, 
          
             {
@@ -59,11 +61,11 @@ const router = createBrowserRouter([
                         <ManageMyFoods></ManageMyFoods>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("http://localhost:3000/manage-my-foods")
+                loader: () => fetch("https://food-sharing-website-server-lovat.vercel.app/manage-my-foods")
             },
             {
                 path: "/food-details/:id",
-                loader: ({params}) => fetch(`http://localhost:3000/food-details/${params.id}`),
+                loader: ({params}) => fetch(`https://food-sharing-website-server-lovat.vercel.app/food-details/${params.id}`),
                 element: (
                     <PrivateRoute>
                         <FoodDetails></FoodDetails>
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/update-food-details/:id",
-                loader: ({params}) => fetch(`http://localhost:3000/manage-my-foods/${params.id}`),
+                loader: ({params}) => fetch(`https://food-sharing-website-server-lovat.vercel.app/manage-my-foods/${params.id}`),
                 element: (
                     <PrivateRoute>
                        <UpdatedFoodDetails></UpdatedFoodDetails>

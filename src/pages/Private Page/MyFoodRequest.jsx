@@ -6,7 +6,7 @@ const MyFoodRequest = () => {
  console.log('here is requested data', foods)
  
   return (
-     <div className="max-w-11/12 mx-auto my-12">
+     <div className="max-w-11/12 mx-auto my-30">
          <h2 className='text-3xl font-bold text-center mt-8 mb-10'>My Food Request</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
   {foods.map((food) => (

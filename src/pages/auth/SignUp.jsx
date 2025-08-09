@@ -96,7 +96,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto my-20 p-4 rounded-md border border-[#73B21A] shadow-xl sm:p-8 dark:bg-gray-50 dark:text-gray-800">
+    <div className="w-full max-w-sm sm:max-w-md mx-auto mt-30 mb-20 p-4 rounded-md border border-[#73B21A] shadow-xl sm:p-8 dark:bg-gray-50 dark:text-gray-800">
       <h2 className="mb-3 text-3xl font-semibold text-center">
         Register An Account
       </h2>

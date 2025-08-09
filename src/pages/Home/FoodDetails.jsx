@@ -21,7 +21,7 @@ const FoodDetails = () => {
       description: form.description.value,
     };
     console.log(formData);
-    fetch("http://localhost:3000/requested-food", {
+    fetch("https://food-sharing-website-server-lovat.vercel.app/requested-food", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -39,7 +39,7 @@ const FoodDetails = () => {
 
   return (
     <div>
-      <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-100 dark:text-gray-800">
+      <div className="my-20 p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-100 dark:text-gray-800">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           <img
             src={food.image}

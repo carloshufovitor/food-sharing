@@ -23,7 +23,7 @@ const UpdatedFoodDetails = () => {
     };
     console.log(formData);
 
-    fetch(`http://localhost:3000/updated-food-details/${food._id}`, {
+    fetch(`https://food-sharing-website-server-lovat.vercel.app/updated-food-details/${food._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

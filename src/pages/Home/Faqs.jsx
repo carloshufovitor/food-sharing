@@ -2,11 +2,11 @@ import React from "react";
 
 const Faqs = () => {
   return (
-    <div className="max-w-11/12 mx-auto my-16">
+    <div className="max-w-11/12 mx-auto my-6 md:my-30">
       <div>
         <section className="dark:bg-gray-100 dark:text-gray-800">
           <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
-            <h2 className=" text-center text-2xl font-semibold sm:text-4xl">
+            <h2 className=" text-center text-2xl font-semibold  md:text-4xl">
               Frequently Asked Questions
             </h2>
             <p className="text-center mt-4 mb-8 dark:text-gray-600">
@@ -16,7 +16,7 @@ const Faqs = () => {
               you through the process.
             </p>
             <div className="space-y-4">
-              <details className="w-full border rounded-lg">
+              <details className="w-full border rounded-lg shadow-md">
                 <summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">
                   What is this food sharing platform about?
                 </summary>
@@ -26,7 +26,7 @@ const Faqs = () => {
                   donate food items through the system.{" "}
                 </p>
               </details>
-              <details className="w-full border rounded-lg">
+              <details className="w-full border rounded-lg shadow-md">
                 <summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">
                   How do I share food with others?
                 </summary>
@@ -36,7 +36,7 @@ const Faqs = () => {
                   expiry date, and location.
                 </p>
               </details>
-              <details className="w-full border rounded-lg">
+              <details className="w-full border rounded-lg shadow-md">
                 <summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">
                   {" "}
                   Can I edit or delete a food item I posted?
@@ -46,7 +46,7 @@ const Faqs = () => {
                   or delete, and make the necessary changes.
                 </p>
               </details>
-              <details className="w-full border rounded-lg">
+              <details className="w-full border rounded-lg shadow-md">
                 <summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">
                   {" "}
                   How can I request available food?
@@ -57,7 +57,7 @@ const Faqs = () => {
                   your request.
                 </p>
               </details>
-              <details className="w-full border rounded-lg">
+              <details className="w-full border rounded-lg shadow-md">
                 <summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">
                   {" "}
                   Can organizations participate in food sharing?

@@ -8,12 +8,15 @@
 // import { auth } from "../../Firebase/Firebase.init";
 // import { toast, ToastContainer } from "react-toastify";
 
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import { auth } from "../../Firebase/Firebase.init";
-
 
 const provider = new GoogleAuthProvider();
 
@@ -61,7 +64,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto my-20 p-4 rounded-md border border-[#73B21A] shadow-xl sm:p-8 dark:bg-gray-50 dark:text-gray-800">
+    <div className="w-full max-w-sm sm:max-w-md mx-auto mt-30 mb-20 p-4 rounded-md border border-[#73B21A] shadow-xl sm:p-8 dark:bg-gray-50 dark:text-gray-800">
       <h2 className="mb-3 text-3xl font-semibold text-center">
         Login to your account
       </h2>

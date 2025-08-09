@@ -16,7 +16,7 @@ const ManageFoodCard = ({ food, foods, setFoods }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/manage-my-foods/${id}`, {
+        fetch(`https://food-sharing-website-server-lovat.vercel.app/manage-my-foods/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

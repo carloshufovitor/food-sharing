@@ -7,11 +7,11 @@ const ManageMyFoods = () => {
   const [foods, setFoods] = useState(loadedFoods);
   console.log(foods);
   return (
-    <div className="overflow-x-auto my-10 max-w-11/12 mx-auto">
+    <div className="overflow-x-auto my-30 max-w-11/12 mx-auto">
       <h2 className="text-3xl font-bold text-center mt-8 mb-10">
         My Food Request
       </h2>
-      <table className="table">
+      <table className="table min-w-[600px]">
         <thead>
           <tr>
             <th>Image</th>
