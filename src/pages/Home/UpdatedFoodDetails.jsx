@@ -23,13 +23,16 @@ const UpdatedFoodDetails = () => {
     };
     console.log(formData);
 
-    fetch(`https://food-sharing-website-server-lovat.vercel.app/updated-food-details/${food._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
+    fetch(
+      `https://food-sharing-website-server-lovat.vercel.app/updated-food-details/${food._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

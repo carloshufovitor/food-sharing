@@ -14,11 +14,13 @@ const Footer = () => {
               </h2>
             </Link>
             <p className="block lg:hidden text-black">
-              Food Sharing connects people to reduce food waste and help those in need. Our platform makes sharing and receiving food easy and encourages a caring community. Join us to share kindness, save food, and make a positive impact.
+              Food Sharing connects people to reduce food waste and help those
+              in need. Our platform makes sharing and receiving food easy and
+              encourages a caring community. Join us to share kindness, save
+              food, and make a positive impact.
             </p>
             <div className="hidden lg:block">
-
-          <Reordering />
+              <Reordering />
             </div>
           </div>
           <div className="grid text-black text-sm gap-x-3 gap-y-8 lg:w-full lg:ml-4 md:grid-cols-3 lg:grid-cols-4">

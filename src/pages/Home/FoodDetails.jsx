@@ -21,13 +21,16 @@ const FoodDetails = () => {
       description: form.description.value,
     };
     console.log(formData);
-    fetch("https://food-sharing-website-server-lovat.vercel.app/requested-food", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
+    fetch(
+      "https://food-sharing-website-server-lovat.vercel.app/requested-food",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log("data after creating user in the db", data);

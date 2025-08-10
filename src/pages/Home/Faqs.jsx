@@ -1,12 +1,12 @@
 import React from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Faqs = () => {
-    useEffect(() => {
-  AOS.init({ duration: 1000 });
-}, []);
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <div data-aos="flip-left" className="max-w-11/12 mx-auto my-6 md:my-30">
       <div>
