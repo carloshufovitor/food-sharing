@@ -2,26 +2,27 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import Loading from "../../Loading";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [expandedIds, setExpandedIds] = useState([]); 
-  const [loading, setLoading] = useState(true)
+  const [expandedIds, setExpandedIds] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-  AOS.init({ duration: 1000 });
-}, []);
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
 
   useEffect(() => {
     axios
-      .get("https://food-sharing-website-server-lovat.vercel.app/available-foods")
+      .get(
+        "https://food-sharing-website-server-lovat.vercel.app/available-foods"
+      )
       .then((res) => {
         setFoods(res.data);
-        setLoading(false); 
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -42,12 +43,11 @@ const AvailableFoods = () => {
     }
   };
 
-   if (loading) {
+  if (loading) {
     return <Loading />;
   }
 
   return (
-
     <div className="max-w-11/12 mx-auto mb-10">
       <h2 className="text-2xl md:text-4xl font-bold text-center mt-30 mb-6 md:mb-10">
         Available Foods
@@ -70,7 +70,11 @@ const AvailableFoods = () => {
           const descriptionLimit = 100;
 
           return (
-            <div data-aos="zoom-in" key={food._id} className="p-4 shadow-md border rounded flex flex-col">
+            <div
+              data-aos="zoom-in"
+              key={food._id}
+              className="p-4 shadow-md border rounded flex flex-col"
+            >
               <img
                 src={food.image}
                 alt={food.name}
@@ -82,7 +86,8 @@ const AvailableFoods = () => {
                   <span className="font-bold">Price:</span> {food.price}
                 </p>
                 <p>
-                  <span className="font-bold">Expired Date:</span> {food.postedAt}
+                  <span className="font-bold">Expired Date:</span>{" "}
+                  {food.postedAt}
                 </p>
               </div>
               <p className="mt-6">

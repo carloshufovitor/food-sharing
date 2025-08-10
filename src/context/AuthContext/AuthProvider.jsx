@@ -10,27 +10,30 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-    setUser(currentUser);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      setUser(currentUser);
 
-    if (currentUser) {
-      try {
-        await axios.get("https://food-sharing-website-server-lovat.vercel.app/", {
-          headers: {
-            Authorization: `Bearer ${currentUser.accessToken}`,
-          },
-        });
-      } catch (error) {
-        console.error("Axios error:", error);
+      if (currentUser) {
+        try {
+          await axios.get(
+            "https://food-sharing-website-server-lovat.vercel.app/",
+            {
+              headers: {
+                Authorization: `Bearer ${currentUser.accessToken}`,
+              },
+            }
+          );
+        } catch (error) {
+          console.error("Axios error:", error);
+        }
       }
-    }
 
-    setLoading(false);
-  });
+      setLoading(false);
+    });
 
-  return () => unsubscribe();
-}, []);
+    return () => unsubscribe();
+  }, []);
 
   const authInfo = {
     user,
