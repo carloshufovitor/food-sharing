@@ -13,8 +13,8 @@ const Gallery = () => {
   return (
     <div data-aos="zoom-in" className="max-w-7xl mx-auto px-4 mt-20 md:mt-30">
       {/* Title */}
-      <h1 className="text-4xl font-bold text-center mb-4">Our Food Sharing Moments</h1>
-      <p className="text-lg text-gray-600 text-center mb-10 max-w-2xl mx-auto">
+      <h1 className=" text-2xl md:text-4xl font-bold text-center mb-4">Our Food Sharing Moments</h1>
+      <p className="text-lg text-base-content text-center mb-10 max-w-2xl mx-auto">
         Every meal has the power to bring people together. Explore these moments of kindness, 
   where surplus food found a new home and hungry hearts found a reason to smile.
       </p>

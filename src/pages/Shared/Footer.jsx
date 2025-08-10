@@ -9,11 +9,11 @@ const Footer = () => {
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           <div className="">
             <Link to="/">
-              <h2 className="text-2xl font-bold pb-6 lg:ml-12 lg:pb-10">
+              <h2 className="text-2xl font-bold pb-6 lg:ml-12 lg:pb-10 text-black">
                 Food <span className="text-[#73b21a]">Sharing</span>
               </h2>
             </Link>
-            <p className="block lg:hidden">
+            <p className="block lg:hidden text-black">
               Food Sharing connects people to reduce food waste and help those in need. Our platform makes sharing and receiving food easy and encourages a caring community. Join us to share kindness, save food, and make a positive impact.
             </p>
             <div className="hidden lg:block">
@@ -21,7 +21,7 @@ const Footer = () => {
           <Reordering />
             </div>
           </div>
-          <div className="grid  text-sm gap-x-3 gap-y-8 lg:w-full lg:ml-4 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid text-black text-sm gap-x-3 gap-y-8 lg:w-full lg:ml-4 md:grid-cols-3 lg:grid-cols-4">
             <div className="space-y-3">
               <h3 className="uppercase dark:text-gray-900 text-[16px] font-bold">
                 Customer Service
@@ -172,7 +172,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="py-6 text-sm text-center dark:text-gray-600">
+        <div className="py-6 text-sm text-center text-black dark:text-gray-600">
           © 2025 Food Sharing. All rights reserved.
         </div>
       </footer>

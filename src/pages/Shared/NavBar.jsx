@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router';
-import { auth } from '../../Firebase/Firebase.init';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { toast } from 'react-toastify';
-import Dark from '../Dark';
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router";
+import { auth } from "../../Firebase/Firebase.init";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { toast } from "react-toastify";
+import Dark from "../Dark";
 
 const NavBar = () => {
-
-      const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
 
@@ -33,7 +32,7 @@ const NavBar = () => {
       });
   };
 
-     const items = (
+  const items = (
     <>
       <li>
         <NavLink
@@ -60,9 +59,7 @@ const NavBar = () => {
         </NavLink>
       </li>
 
-
-
-       {user && (
+      {user && (
         <>
           <li>
             <NavLink
@@ -90,78 +87,95 @@ const NavBar = () => {
           </li>
         </>
       )}
- 
     </>
-     );
+  );
 
-    return (
-        <div className=''>
-          <div className=" navbar bg-gradient-to-r from-[#f8fbf6] to-[#e9f3e3] shadow-[0_2px_4px_rgba(0,0,0,0.1)] fixed top-0 z-50">
-  <div className="navbar-start md:pl-15">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-      </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-       
-        {items}
-
-      </ul>
-    </div>
-    <Link to='/'><h2 className='text-xl font-bold text-black'>Food <span className='text-[#73b21a]'>Sharing</span></h2></Link>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-    
-        {items}
-
-    </ul>
-  </div>
-  <div className="navbar-end md:pr-15">
-     {user ? (
-          <>
-            <div className="avatar">
-              <div className="ring-primary ring-offset-base-100 w-10 mr-2 rounded-full ring-2 ring-offset-2">
-                <img
-                  title={user?.displayName || ""}
-                  className=""
-                  src={user.photoURL}
-                />
-              </div>
+  return (
+    <div className="">
+      <div className=" navbar bg-gradient-to-r from-[#f8fbf6] to-[#e9f3e3] shadow-[0_2px_4px_rgba(0,0,0,0.1)] fixed top-0 z-50">
+        <div className="navbar-start md:pl-15">
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn text-base-content lg:hidden"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {" "}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />{" "}
+              </svg>
             </div>
-            <Link
-              onClick={handleLogout}
-              to="/logout"
-              className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black ml-2"
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100  rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              Logout
-            </Link>
-          </>
-        ) : (
-          <>
-            <Link
-              to="/login"
-              className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black mr-2"
-            >
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black"
-            >
-              SignUp
-            </Link>
-          </>
-        )}
-<div className='ml-2'>
-  <Dark></Dark>
-</div>
-  </div>
-</div>
+              {items}
+            </ul>
+          </div>
+          <Link to="/">
+            <h2 className="text-lg md:text-xl font-bold text-black">
+              Food <span className="text-[#73b21a]">Sharing</span>
+            </h2>
+          </Link>
         </div>
-    );
+
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 ">{items}</ul>
+        </div>
+        <div className="navbar-end md:pr-15">
+          {user ? (
+            <>
+              <div className="avatar">
+                <div className="ring-primary ring-offset-base-100 w-10 mr-2 rounded-full ring-2 ring-offset-2">
+                  <img
+                    title={user?.displayName || ""}
+                    className=""
+                    src={user.photoURL}
+                  />
+                </div>
+              </div>
+              <Link
+                onClick={handleLogout}
+                to="/logout"
+                className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black ml-2"
+              >
+                Logout
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black mr-2"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black"
+              >
+                SignUp
+              </Link>
+            </>
+          )}
+          <div className="ml-2">
+            <Dark></Dark>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default NavBar;

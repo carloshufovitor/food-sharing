@@ -10,7 +10,7 @@ const WhyChooseUs = () => {
 }, []);
 
   return (
-    <section className="bg-white mt-16 md:mt-30 px-4 sm:px-6 lg:px-8 max-w-11/12 mx-auto">
+    <section className="bg-white mt-10 py-16 md:py-20 rounded-lg px-4 sm:px-6 lg:px-8 max-w-11/12 mx-auto">
       <div data-aos="zoom-in" className="max-w-7xl mx-auto">
         <h2  className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12 text-black">
           Why Use Our Platform?

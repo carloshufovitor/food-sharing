@@ -9,7 +9,7 @@ const FeatureHighlight = () => {
 }, []);
 
   return (
-  <div class="relative max-w-screen-xl p-4 px-4 mx-auto bg-white dark:bg-gray-800 sm:px-6 lg:px-8 mt-16 md:mt-30">
+  <div class="relative max-w-screen-xl p-4 px-4 mx-auto bg-white rounded-lg dark:bg-gray-800 sm:px-6 lg:px-8 mt-10 py-16 md:py-20">
   <div class="relative">
     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
       <div data-aos="zoom-in" data-aos-duration = '2000' class="ml-auto lg:col-start-2 lg:max-w-2xl">

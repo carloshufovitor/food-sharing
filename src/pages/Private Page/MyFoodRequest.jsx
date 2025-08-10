@@ -24,16 +24,16 @@ const MyFoodRequest = () => {
 
         <div className="grow p-4 ms-32 sm:ms-48">
           <div className="min-h-24 flex flex-col justify-center">
-            <h3 className="font-semibold text-md text-gray-800 dark:text-neutral-300">
+            <h3 className="font-semibold text-md text-base-content">
               {food.name}
             </h3>
-            <h3 className="font-semibold text-sm text-gray-800 dark:text-neutral-300">
+            <h3 className="font-semibold text-sm text-base-content">
               Pickup Location: {food.location}
             </h3>
-            <h3 className="font-semibold text-sm text-gray-800 dark:text-neutral-300">
+            <h3 className="font-semibold text-sm text-base-content">
               Expired Date: {food.postedAt}
             </h3>
-            <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
+            <p className="mt-1 text-sm text-base-content">
               {food.description}
             </p>
           </div>
