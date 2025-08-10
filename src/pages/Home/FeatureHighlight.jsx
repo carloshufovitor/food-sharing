@@ -1,11 +1,18 @@
 import React from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const FeatureHighlight = () => {
+  useEffect(() => {
+  AOS.init({ duration: 1000 });
+}, []);
+
   return (
   <div class="relative max-w-screen-xl p-4 px-4 mx-auto bg-white dark:bg-gray-800 sm:px-6 lg:px-8 mt-16 md:mt-30">
   <div class="relative">
     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
-      <div class="ml-auto lg:col-start-2 lg:max-w-2xl">
+      <div data-aos="zoom-in" data-aos-duration = '2000' class="ml-auto lg:col-start-2 lg:max-w-2xl">
         <p class="text-base font-semibold leading-6 text-[#73B21A] uppercase">
           Community Driven
         </p>
@@ -68,11 +75,11 @@ const FeatureHighlight = () => {
       </div>
       <div class="relative mt-10 lg:-mx-4 relative-20 lg:mt-0 lg:col-start-1">
         <div class="relative space-y-4">
-          <div class="flex items-end justify-center space-x-4 lg:justify-start">
+          <div data-aos-duration = '2000' data-aos="zoom-in" class="flex items-end justify-center space-x-4 lg:justify-start">
             <img class="w-32 rounded-lg shadow-lg md:w-56" width="200" src="/images/food1.jpg" alt="Food Donation 1"/>
             <img class="w-40 rounded-lg shadow-lg md:w-64" width="260" src="/images/food2.jpg" alt="Food Donation 2"/>
           </div>
-          <div class="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
+          <div data-aos-duration = '2000' data-aos="zoom-in" class="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
             <img class="w-24 rounded-lg shadow-lg md:w-40" width="170" src="/images/food3.jpg" alt="Food Donation 3"/>
             <img class="w-32 rounded-lg shadow-lg md:w-56" width="200" src="/images/food4.jpg" alt="Food Donation 4"/>
           </div>

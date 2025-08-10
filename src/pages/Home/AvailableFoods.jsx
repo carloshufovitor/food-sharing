@@ -1,17 +1,32 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import Loading from "../../Loading";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [expandedIds, setExpandedIds] = useState([]); // কোন কার্ডে Read More ক্লিক হয়েছে
+  const [expandedIds, setExpandedIds] = useState([]); 
+  const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+  AOS.init({ duration: 1000 });
+}, []);
 
   useEffect(() => {
     axios
       .get("https://food-sharing-website-server-lovat.vercel.app/available-foods")
-      .then((res) => setFoods(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setFoods(res.data);
+        setLoading(false); 
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   }, []);
 
   const filteredFoods = foods.filter((food) =>
@@ -27,7 +42,12 @@ const AvailableFoods = () => {
     }
   };
 
+   if (loading) {
+    return <Loading />;
+  }
+
   return (
+
     <div className="max-w-11/12 mx-auto mb-10">
       <h2 className="text-2xl md:text-4xl font-bold text-center mt-30 mb-6 md:mb-10">
         Available Foods
@@ -50,7 +70,7 @@ const AvailableFoods = () => {
           const descriptionLimit = 100;
 
           return (
-            <div key={food._id} className="p-4 shadow-md border rounded flex flex-col">
+            <div data-aos="zoom-in" key={food._id} className="p-4 shadow-md border rounded flex flex-col">
               <img
                 src={food.image}
                 alt={food.name}

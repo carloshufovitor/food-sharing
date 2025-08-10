@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router';
 import { auth } from '../../Firebase/Firebase.init';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import Dark from '../Dark';
 
 const NavBar = () => {
 
@@ -58,6 +59,8 @@ const NavBar = () => {
           Contact Us
         </NavLink>
       </li>
+
+
 
        {user && (
         <>
@@ -152,6 +155,7 @@ const NavBar = () => {
             </Link>
           </>
         )}
+<Dark></Dark>
   </div>
 </div>
         </div>

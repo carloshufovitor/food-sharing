@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 const truncate = (text, length) => {
   if (text.length <= length) return text;
   return text.slice(0, length) + "...";
@@ -26,8 +30,14 @@ const FeaturedFoods = () => {
     }
   };
 
+  useEffect(() => {
+  AOS.init({ duration: 1000 });
+}, []);
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <div data-aos="zoom-in">
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {foods.map((food) => {
         const isExpanded = expandedIds.includes(food._id);
         return (
@@ -82,6 +92,8 @@ const FeaturedFoods = () => {
         );
       })}
     </div>
+    </div>
+   
   );
 };
 

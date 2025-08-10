@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "aos": "^2.3.4",
     "axios": "^1.10.0",
     "firebase": "^11.10.0",
-    "framer-motion": "^12.23.6",
+    "framer-motion": "^12.23.12",
     "lottie-react": "^2.4.1",
+    "motion": "^12.23.12",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-firebase-hooks": "^5.1.1",

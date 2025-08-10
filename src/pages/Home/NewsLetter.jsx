@@ -1,8 +1,16 @@
 import React from "react";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
+
 const NewsLetter = () => {
+      useEffect(() => {
+  AOS.init({ duration: 1000 });
+}, []);
   return (
-    <section className="mt-16 md:mt-30 mb-10 md:mb-20 max-w-[350px] sm:max-w-xl md:max-w-3xl lg:max-w-6xl mx-auto bg-white dark:bg-gray-800 border rounded-lg shadow-md p-6 sm:p-8 md:p-16">
+    <section  data-aos="flip-right" className="mt-16 md:mt-30 mb-10 md:mb-20 max-w-[350px] sm:max-w-xl md:max-w-3xl lg:max-w-6xl mx-auto bg-white dark:bg-gray-800 border rounded-lg shadow-md p-6 sm:p-8 md:p-16">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 text-center">
         Sign Up For <span className="text-[#73B21A]">Project</span> Updates
       </h2>

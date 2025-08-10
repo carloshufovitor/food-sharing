@@ -1,8 +1,17 @@
 import React from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
+
+
 
 const Gallery = () => {
+      useEffect(() => {
+  AOS.init({ duration: 1000 });
+}, []);
   return (
-    <div className="max-w-7xl mx-auto px-4 mt-20 md:mt-30">
+    <div data-aos="zoom-in" className="max-w-7xl mx-auto px-4 mt-20 md:mt-30">
       {/* Title */}
       <h1 className="text-4xl font-bold text-center mb-4">Our Food Sharing Moments</h1>
       <p className="text-lg text-gray-600 text-center mb-10 max-w-2xl mx-auto">

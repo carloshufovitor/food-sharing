@@ -1,25 +1,36 @@
 import React from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 
 const WhyChooseUs = () => {
+  useEffect(() => {
+  AOS.init({ duration: 1000 });
+}, []);
+
   return (
     <section className="bg-white mt-16 md:mt-30 px-4 sm:px-6 lg:px-8 max-w-11/12 mx-auto">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12 text-black">
+      <div data-aos="zoom-in" className="max-w-7xl mx-auto">
+        <h2  className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12 text-black">
           Why Use Our Platform?
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-10">
-          {/* Image Section */}
-          <div className="w-full lg:w-1/2">
+         
+      
+           {/* Image Section */}
+          <div data-aos="slide-right" data-aos-duration = '2000' className="w-full lg:w-1/2">
             <img
               src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80"
               alt="Food Sharing"
               className="rounded-lg shadow-lg w-full"
             />
           </div>
+    
 
           {/* Features Section */}
-          <div className="w-full lg:w-1/2 space-y-8">
+           <div data-aos="slide-left" data-aos-duration = '2000' className="w-full lg:w-1/2 space-y-8">
             {/* Feature 1 */}
             <div>
               <p className="text-xl font-semibold text-gray-800">

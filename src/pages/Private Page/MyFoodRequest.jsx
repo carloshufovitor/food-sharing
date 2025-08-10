@@ -18,7 +18,7 @@ const MyFoodRequest = () => {
       <div className="relative flex items-center overflow-hidden">
         <img
           className="w-32 sm:w-48 h-full absolute inset-0 object-cover rounded-s-lg"
-          src={food.image} // replace with actual image field
+          src={food.image} 
           alt={food.name}
         />
 
