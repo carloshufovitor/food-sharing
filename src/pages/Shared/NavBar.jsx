@@ -110,7 +110,7 @@ const NavBar = () => {
 
       </ul>
     </div>
-    <Link to='/'><h2 className='text-xl font-bold'>Food <span className='text-[#73b21a]'>Sharing</span></h2></Link>
+    <Link to='/'><h2 className='text-xl font-bold text-black'>Food <span className='text-[#73b21a]'>Sharing</span></h2></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -155,7 +155,9 @@ const NavBar = () => {
             </Link>
           </>
         )}
-<Dark></Dark>
+<div className='ml-2'>
+  <Dark></Dark>
+</div>
   </div>
 </div>
         </div>
